@@ -40,26 +40,19 @@
                 <li><a href="index"><i class="home"></i><em>管理首页</em></a></li>
             </ul>
             <ul>
-               <!-- <li><a href="system.html"><i class="system"></i><em>系统设置</em></a></li>-->
                 <li><a href="nav_show"><i class="nav"></i><em>房东管理</em></a></li>
                 <li><a href="slide_show"><i class="show"></i><em>会员管理</em></a></li>
-             <!--   <li><a href="page.html"><i class="page"></i><em>单页面管理</em></a></li>-->
             </ul>
-          <!--  <ul>
-                <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>
-                <li><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>
-            </ul>-->
             <ul>
                 <li><a href="classify_list"><i class="articleCat"></i><em>房屋分类</em></a></li>
                 <li><a href="article_list"><i class="article"></i><em>房屋列表</em></a></li>
             </ul>
+             <ul>
+                <li><a href="order_list"><i class="articleCat"></i><em>订单列表</em></a></li>
+            </ul>
             <ul class="bot">
                 <li><a href="backup_list"><i class="backup"></i><em>数据备份</em></a></li>
                 <li><a href="gather_list"><i class="backup"></i><em>回收站</em></a></li>
-               <!-- <li><a href="mobile.html"><i class="mobile"></i><em>手机版</em></a></li>
-                <li><a href="theme.html"><i class="theme"></i><em>设置模板</em></a></li>
-                <li><a href="manager.html"><i class="manager"></i><em>网站管理员</em></a></li>
-                <li><a href="manager.php?rec=manager_log"><i class="managerLog"></i><em>操作记录</em></a></li>-->
             </ul>
         </div></div>
     <div id="dcMain"> <!-- 当前位置 -->

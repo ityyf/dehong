@@ -42,12 +42,15 @@ Route::get('admin/article_add','Admin\ArticleController@article_add');
 //新加房屋
 
 
+//订单列表
+Route::get('admin/order_list','Admin\OrderController@order_list');
+
 
 //Route::any('/login','admin/LoginController@login');
 Route::any('/check_login','admin/LoginController@check_login');
 //跳转到首页
 Route::any('home/index','Home\IndexController@index');
-Route::any('home/about','Home\AboutController@about');
+Route::any('home/AboutController','Home\AboutController@about');
 Route::any('home/contact','Home\ContactController@contact');
 Route::any('home/news','Home\NewsController@news');
 Route::any('home/icons','Home\IconsController@icons');
