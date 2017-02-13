@@ -2,18 +2,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>DouPHP 管理中心 - 添加分类 </title>
+    <title>DouPHP 管理中心 - 订单详情 </title>
     <meta name="Copyright" content="Douco Design." />
-    <link href="css/public.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/global.js"></script>
+    <link href="/public/css/public.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/js/global.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.autotextarea.js"></script>
+    <script language="javascript" type="text/javascript" src="/public/js/WdatePicker.js"></script>
 </head>
 <body>
 <div id="dcWrap">
-@include('Admin.admin_public.main')
+    @include('Admin.admin_public.main')
+    <div id="dcMain">
         <!-- 当前位置 -->
-        <div id="urHere">DouPHP 管理中心<b>></b><strong>添加分类</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="article_category.html" class="actionBtn">文章分类</a>添加分类</h3>
+        <div id="urHere">DouPHP 管理中心<b>></b><strong>订单详情</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3><a href="order_list" class="actionBtn">订单列表</a>订单详情</h3>
             <form action="article_category.php?rec=insert" method="post">
                 <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
                     <tr>
