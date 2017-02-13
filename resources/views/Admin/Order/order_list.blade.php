@@ -41,19 +41,25 @@ ul { list-style:none;}
                             <th width="80" align="center">客户名称</th>
                             <th width="80" align="center">价格</th>
                             <th width="80" align="center">数量</th>
-                            <th width="80" align="center">备注</th>
+                            <th width="80" align="center">状态</th>
                             <th width="80" align="center">添加日期</th>
                             <th width="80" align="center">操作</th>
                         </tr>
                         @foreach($order_list as $key=>$val)
                         <tr>
-                            <td align="center"><input type="checkbox" name="checkbox[]" value="10" /></td>
-                            <td align="center">{{$val->o_id}}</td>
+                            <td align="center"><input type="checkbox" name="checkbox" value="{{$val->o_id}}" /></td>
+                            <td align="center">{{$val->p_sn}}</td>
                             <td><a href="article.php?rec=edit&id=10">{{$val->p_name}}</a></td>
                             <td align="center">{{$val->username}}</td>
-                            <td align="center">{{$val->price}}元</td>
-                            <td align="center">{{$val->num}}</td>
-                            <td align="center">{{$val->remark}}</td>
+                            <td align="center">{{$val->o_price}}元</td>
+                            <td align="center">{{$val->o_num}}</td>
+                            <td align="center">
+                               @if($val->o_status == 0)
+                                   <span style="color:red">未完成</span>
+                               @else
+                                    <span style="color:blue">已完成</span>
+                               @endif
+                            </td>
                             <td align="center">{{date('Y-m-d',$val->addtime)}}</td>
                             <td align="center">
                                 <a href="order_detail?id={{$val->o_id}}">详情</a> |
@@ -63,12 +69,7 @@ ul { list-style:none;}
                         @endforeach
                     </table>
                     <div class="action">
-                        <select name="action" onchange="douAction()">
-                            <option value="0">请选择...</option>
-                            <option value="del_all">删除</option>
-                            <option value="category_move">移动分类至</option>
-                        </select>
-                        <input name="submit" class="btn" type="submit" value="执行" />
+                        <input name="submit" class="btn" type="button" value="批量删除" />
                     </div>
                 </form>
             </div>
@@ -89,12 +90,23 @@ ul { list-style:none;}
     {
         document.forms['action'].reset();
     }
-    function douAction()
-    {
-        var frm = document.forms['action'];
-
-        frm.elements['new_cat_id'].style.display = frm.elements['action'].value == 'category_move' ? '' : 'none';
-    }
+    $('.btn').click(function(){
+        var ids="";
+        $(":input[name='checkbox']:checked").each(function(){
+            ids += $(this).val()+',';
+        })
+        $.ajax({
+            type: "GET",
+            url: "order_dels",
+            data: {'ids':ids},
+            success: function(msg){
+                if (msg == 1)
+                {
+                    $(":input[name='checkbox']:checked").parent().parent().remove();
+                }
+            }
+        });
+    })
 </script>
 </body>
 </html>

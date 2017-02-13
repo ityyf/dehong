@@ -45,6 +45,7 @@ Route::get('admin/article_add','Admin\ArticleController@article_add');
 //订单列表
 Route::get('admin/order_list','Admin\OrderController@order_list');
 Route::get('admin/order_del/{id}','Admin\OrderController@order_del');
+Route::get('admin/order_dels','Admin\OrderController@order_dels');
 Route::get('admin/order_detail','Admin\OrderController@order_detail');
 
 

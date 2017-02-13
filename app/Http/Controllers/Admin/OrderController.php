@@ -40,7 +40,7 @@ class OrderController extends CommonController
 			$order_list->where('order.addtime','<=',strtotime($data['oldtime']));
 		}
 		$order = $order_list->join('product','order.p_id','=','product.p_id')
-    					->select('order.*','product.p_name')
+    					->select('order.*','product.p_name','p_sn')
 						->orderBy('o_id','desc')
     					->paginate(3);
         return view('admin.Order.order_list',['order_list'=>$order,'search'=>$where]);
@@ -61,11 +61,29 @@ class OrderController extends CommonController
 			return redirect('admin/order_list');
 		}
 	}
+
+	/**
+	 * 批量删除
+	 *
+	 * @author 梦境
+	 * @return void
+	 */
+	public function order_dels()
+	{
+		$ids = Input::get('ids');
+		$ids = explode(',',substr($ids,0,strlen($ids)-1));
+		$re = DB::table('order')->whereIn('o_id',$ids)->delete();
+		echo $re;
+	}
 	
 	public function order_detail()
 	{
 		$id = Input::get('id');
-		echo $id;
-		return view('admin.Order.order_detail');
+		$order_info = DB::table('order')
+						->join('product','order.p_id','=','product.p_id')
+						->where('o_id',$id)
+						->select('order.*','p_name','p_sn','price')
+						->first();
+		return view('admin.Order.order_detail',['order_info'=>$order_info]);
 	}
 }
