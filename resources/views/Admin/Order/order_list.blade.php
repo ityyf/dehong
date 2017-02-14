@@ -63,7 +63,7 @@ ul { list-style:none;}
                             <td align="center">{{date('Y-m-d',$val->addtime)}}</td>
                             <td align="center">
                                 <a href="order_detail?id={{$val->o_id}}">详情</a> |
-                                <a href="order_del/{{$val->o_id}}">删除</a>
+                                <a href="order_del?id={{$val->o_id}}">删除</a>
                             </td>
                         </tr>
                         @endforeach

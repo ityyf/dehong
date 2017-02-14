@@ -53,8 +53,9 @@ class OrderController extends CommonController
 	 * @param  int $id 订单编号
 	 * @return void
 	 */
-	public function order_del($id)
+	public function order_del()
 	{
+		$id = Input::get('id');
 		$re = DB::table('order')->where(['o_id'=>$id])->delete();
 		if ($re)
 		{

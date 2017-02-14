@@ -30,6 +30,7 @@
         </ul>
         <ul>
             <li><a href="product_add"><i class="nav"></i><em>产品添加</em></a></li>
+            <li><a href="product_list"><i class="nav"></i><em>产品列表</em></a></li>
         </ul>
         <!--  <ul>
               <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>

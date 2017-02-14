@@ -44,13 +44,16 @@ Route::get('admin/article_add','Admin\ArticleController@article_add');
 
 //订单列表
 Route::get('admin/order_list','Admin\OrderController@order_list');
-Route::get('admin/order_del/{id}','Admin\OrderController@order_del');
+Route::get('admin/order_del','Admin\OrderController@order_del');
 Route::get('admin/order_dels','Admin\OrderController@order_dels');
 Route::get('admin/order_detail','Admin\OrderController@order_detail');
 
 //产品
 Route::any('admin/product_add','Admin\ProductController@product_add');
 Route::any('admin/product_add_exec','Admin\ProductController@product_add_exec');
+Route::any('admin/product_list','Admin\ProductController@product_list');
+Route::any('admin/product_dels','Admin\ProductController@product_dels');
+Route::any('admin/product_edit','Admin\ProductController@product_edit');
 
 
 
