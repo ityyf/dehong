@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
     <script type="text/javascript" src="/public/js/global.js"></script>
 </head>
 <body>
-<div id="dcWrap"> <div id="dcHead">
+{{--<div id="dcWrap"> <div id="dcHead">
         <div id="head">
             <div class="logo"><a href="index.html"><img src="/public/images/dclogo.gif" alt="logo"></a></div>
             <div class="nav">
@@ -63,7 +63,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
                 <li><a href="manager.html"><i class="manager"></i><em>网站管理员</em></a></li>
                 <li><a href="manager.php?rec=manager_log"><i class="managerLog"></i><em>操作记录</em></a></li>-->
             </ul>
-        </div></div>
+        </div></div>--}}
+<div id="dcWrap">
+   @include('Admin.admin_public.main')
     <div id="dcMain"> <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心</div>  <div id="index" class="mainBox" style="padding-top:18px;height:auto!important;height:550px;min-height:550px;">
             <div class="warning">您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。</div>
