@@ -39,7 +39,42 @@ Route::get('admin/classify_list','Admin\ClassifyController@classify_list');
 //房屋列表
 Route::get('admin/article_list','Admin\ArticleController@article_list');
 Route::get('admin/article_add','Admin\ArticleController@article_add');
+
 //新加房屋
+
+//------新闻中心-----
+//新闻列表
+Route::get('admin/news_list','Admin\NewsController@news_list');
+//新闻添加
+Route::get('admin/news_add','Admin\NewsController@news_add');
+//接值
+Route::any('admin/news_data','Admin\NewsController@news_data');
+//新闻详情页
+Route::any('admin/detail/{n_id?}','Admin\NewsController@detail');
+//删除
+Route::any('admin/news_delete/{n_id?}','Admin\NewsController@news_delete');
+//编辑
+Route::any('admin/news_edit/{n_id?}','Admin\NewsController@news_edit');
+//编辑执行
+Route::any('admin/news_update/{n_id?}','Admin\NewsController@news_update');
+// 上一篇
+Route::any('admin/getPrevArticleId/{n_id?}','Admin\NewsController@getPrevArticleId');
+// 下一篇
+Route::any('admin/getNextArticleId/{n_id?}','Admin\NewsController@getNextArticleId');
+//---------rbac----------
+//角色添加
+Route::any('admin/role_add','Admin\RbacController@role_add');
+//角色列表
+Route::any('admin/role_list','Admin\RbacController@role_list');
+//角色添加执行
+Route::any('admin/role_data','Admin\RbacController@role_data');
+// 角色删除
+Route::any('admin/role_delete/{r_id?}','Admin\RbacController@role_delete');
+//角色编辑
+Route::any('admin/role_editor/{r_id?}','Admin\RbacController@role_editor');
+//角色编辑执行
+Route::any('admin/role_update/{r_id?}','Admin\RbacController@role_update');
+
 
 
 

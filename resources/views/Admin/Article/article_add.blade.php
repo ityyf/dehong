@@ -38,11 +38,11 @@
                         <td align="right" valign="top">房屋描述</td>
                         <td>
                             <!-- KindEditor -->
-                            <link rel="stylesheet" href="js/kindeditor/themes/default/default.css" />
-                           <link rel="stylesheet" href="js/kindeditor/plugins/code/prettify.css" />
-                            <script charset="utf-8" src="js/kindeditor/kindeditor.js"></script>
-                            <script charset="utf-8" src="js/kindeditor/lang/zh_CN.js"></script>
-                            <script charset="utf-8" src="js/kindeditor/plugins/code/prettify.js"></script>
+                            <link rel="stylesheet" href="/public/js/kindeditor/themes/default/default.css" />
+                           <link rel="stylesheet" href="/public/js/kindeditor/plugins/code/prettify.css" />
+                            <script charset="utf-8" src="/public/js/kindeditor/kindeditor.js"></script>
+                            <script charset="utf-8" src="/public/js/kindeditor/lang/zh_CN.js"></script>
+                            <script charset="utf-8" src="/public/js/kindeditor/plugins/code/prettify.js"></script>
                             <script>
                                 KindEditor.ready(function(K) {
                                     var editor1 = K.create('textarea[name="content"]', {

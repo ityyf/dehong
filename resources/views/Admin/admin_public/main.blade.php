@@ -41,6 +41,8 @@
         <ul>
             <li><a href="classify_list"><i class="articleCat"></i><em>房屋分类</em></a></li>
             <li><a href="article_list"><i class="article"></i><em>房屋列表</em></a></li>
+            <li><a href="{{url('admin/news_list')}}"><i class="article"></i><em>新闻列表</em></a></li>
+            <li><a href="{{url('admin/role_list')}}"><i class="article"></i><em>角色列表</em></a></li>
         </ul>
         <ul class="bot">
             <li><a href="backup_list"><i class="backup"></i><em>数据备份</em></a></li>
