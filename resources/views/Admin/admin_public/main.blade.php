@@ -29,10 +29,7 @@
             <li><a href="index"><i class="home"></i><em>管理首页</em></a></li>
         </ul>
         <ul>
-            <!-- <li><a href="system.html"><i class="system"></i><em>系统设置</em></a></li>-->
-            <li><a href="nav_show"><i class="nav"></i><em>房东管理</em></a></li>
-            <li><a href="slide_show"><i class="show"></i><em>会员管理</em></a></li>
-            <!--   <li><a href="page.html"><i class="page"></i><em>单页面管理</em></a></li>-->
+            <li><a href="product_add"><i class="nav"></i><em>产品添加</em></a></li>
         </ul>
         <!--  <ul>
               <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>

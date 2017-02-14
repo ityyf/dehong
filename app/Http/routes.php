@@ -48,6 +48,9 @@ Route::get('admin/order_del/{id}','Admin\OrderController@order_del');
 Route::get('admin/order_dels','Admin\OrderController@order_dels');
 Route::get('admin/order_detail','Admin\OrderController@order_detail');
 
+//产品
+Route::any('admin/product_add','Admin\ProductController@product_add');
+Route::any('admin/product_add_exec','Admin\ProductController@product_add_exec');
 
 
 
