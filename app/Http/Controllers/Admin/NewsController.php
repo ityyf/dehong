@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Request;
 use DB;
 use App\News;
+use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -83,6 +84,27 @@ class NewsController extends CommonController
     	$n_title=Input::get('n_title');
     	$c_id=Input::get('c_id');
     	$n_content=Input::get('n_content');
+    	$validator=\Validator::make(Input::get(),[
+                'news.n_title'=>'required',
+                'news.c_id'=>'required',
+                'news.n_content'=>'required',
+            ],[
+                'required'=>':attribute 为必填项',
+            ],[
+               'news.n_title'=>'新闻名称',
+                'news.c_id'=>'新闻分类',
+                'news.n_content'=>'新闻内容',
+            ]);
+            if($validator->fails())
+            {
+                return redirect()->back()->withErrors($validator);
+            }
+
+        $data=Input::get('news');
+
+    	$n_title=$data['n_title'];
+    	$c_id=$data['c_id'];
+    	$n_content=$data['n_content'];
     	$n_addtime=time();
 		$session = new session;
 		$name = $session->get('admin_name');
@@ -111,6 +133,7 @@ class NewsController extends CommonController
         //查找上一篇的标题
         $data2=DB::table('news')->where(['n_id'=>$n_id+1])->first();
     	return view('Admin.News.detail',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'name'=>$name]);
+    	return view('Admin.News.detail',['data'=>$data]);
     }
 
     //上一篇
