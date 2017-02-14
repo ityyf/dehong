@@ -10,10 +10,6 @@
     <script type="text/javascript" src="/public/js/jquery.autotextarea.js"></script>
 
     <!-- 引入百度编辑器 -->
-    <script src="ueditor/ueditor.config.js"></script>
-    <script src="ueditor/ueditor.all.min.js"></script>
-    <script src="ueditor/lang/zh-cn/zh-cn.js"></script>
-
     <script type="text/javascript" charset="utf-8" src="/public/admin/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/public/admin/ueditor/ueditor.all.min.js"> </script>
     <script type="text/javascript" charset="utf-8" src="/public/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
@@ -68,11 +64,12 @@
         <div id="footer">
             <div class="line"></div>
             <ul>
-                版权所有 1501phpA6组，并保留所有权利。              </ul>
+                版权所有，并保留所有权利。              </ul>
         </div>
     </div><!-- dcFooter 结束 -->
     <div class="clear"></div> </div>
 <script type="text/javascript">
+    //实例化百度编辑器
     var ue = UE.getEditor('n_content');
 
 </script>

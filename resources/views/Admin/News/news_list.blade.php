@@ -8,6 +8,9 @@
     <script type="text/javascript" src="/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="/public/js/global.js"></script>
     <script type="text/javascript" src="/public/js/jquery.autotextarea.js"></script>
+    <style type="text/css">
+        /*a{text-decoration: none;}*/
+    </style>
 </head>
 <body>
 <div id="dcWrap">
@@ -78,7 +81,7 @@
             <div class="clear"></div>
             <div class="pager">
                 {{$data->render()}}
-                <!-- 总计 10 个记录，共 1 页，当前第 1 页 | <a href="article.php?page=1">第一页</a> 上一页 下一页 <a href="article.php?page=1">最末页</a> -->
+                
             </div>           
         </div>
     </div>
