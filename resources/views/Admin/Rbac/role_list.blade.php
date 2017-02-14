@@ -42,8 +42,7 @@
                     
                 </form>
             </div>
-            <div class="clear"></div>
-            <div class="pager">总计 10 个记录，共 1 页，当前第 1 页 | <a href="article.php?page=1">第一页</a> 上一页 下一页 <a href="article.php?page=1">最末页</a></div>           </div>
+        </div>
     </div>
     <div class="clear"></div>
     <div id="dcFooter">

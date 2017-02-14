@@ -39,15 +39,7 @@ class RbacController extends CommonController
             {
                 return redirect()->back()->withErrors($validator);
             }
-		// $this->validate($request,[
-		// 	'role.r_name'=>'required|min:2|max:10',
-		// 	'role.r_desc'=>'required',
-		// 	],[
-  //               'required'=>':attribute 必填',
-  //           ],[
-  //               'role.r_name'=>'角色名称',
-  //               'role.r_desc'=>'角色描述',
-  //           ]);
+
 		$data=Input::get('role');
 		$r_name=$data['r_name'];
 		$r_desc=$data['r_desc'];

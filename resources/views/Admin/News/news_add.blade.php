@@ -30,13 +30,13 @@
                     <tr>
                         <td width="90" align="right">新闻标题</td>
                         <td>
-                            <input type="text" name="n_title" value="" size="80" class="inpMain" />
+                            <input type="text" name="news[n_title]" value="" size="80" class="inpMain" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right">新闻类型</td>
                         <td>
-                            <select name="c_id">
+                            <select name="news[c_id]">
                                 @foreach($category as $val)
                                 <option value="{{$val->c_id}}"> {{$val->c_name}}</option>
                                 @endforeach
@@ -46,7 +46,7 @@
                     <tr>
                         <td align="right" valign="top">新闻内容</td>
                         <td>
-                            <textarea id="n_content" name="n_content" type="text/plain" style="width:1024px;height:500px;"></textarea>
+                            <textarea id="n_content" name="news[n_content]" type="text/plain" style="width:1024px;height:500px;"></textarea>
                         </td>
                     </tr>
                     
