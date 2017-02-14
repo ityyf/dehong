@@ -36,7 +36,7 @@ class PowerController extends CommonController
         $session = new session;
         $name = $session->get('admin_name');
         $power =  DB::table('power')->get();
-        return view('admin.power.power_list',['name'=>$name,'power'=>$power]);
+        return view('admin.power.power_list',['power'=>$power,'name'=>$name]);
     }
     //编辑权限
     public function power_update()

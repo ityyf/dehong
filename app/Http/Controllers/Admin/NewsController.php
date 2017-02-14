@@ -6,14 +6,18 @@ use Request;
 use DB;
 use App\News;
 use Illuminate\Support\Facades\Input;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 class NewsController extends CommonController
 {
     //新闻列表
     public function news_list(){
+		$session = new session;
+		$name = $session->get('admin_name');
 
         $data=DB::table('news')->orderBy('n_id','desc')->paginate(10);
 
-        return view('Admin.News.news_list',['data'=>$data]);
+        return view('Admin.News.news_list',['data'=>$data,'name'=>$name]);
     }
 
     //删除新闻
@@ -32,11 +36,13 @@ class NewsController extends CommonController
     //编辑
     public function news_edit($n_id)
     {
+		$session = new session;
+		$name = $session->get('admin_name');
 		// 查询分类表中新闻类型
     	$category=DB::table('category')->where(['c_type'=>2])->get();
     	//查询对应的新闻信息
     	$news=DB::table('news')->where(['n_id'=>$n_id])->first();
-    	return view('Admin.News.news_edit',['category'=>$category,'news'=>$news]);
+    	return view('Admin.News.news_edit',['category'=>$category,'news'=>$news,'name'=>$name]);
     }
 
     //编辑执行
@@ -62,21 +68,25 @@ class NewsController extends CommonController
     //新闻添加
     public function news_add()
     {
+		$session = new session;
+		$name = $session->get('admin_name');
     	// 查询分类表中新闻类型
     	$category=DB::table('category')->where(['c_type'=>2])->get();
     	
-        return view('Admin.News.news_add',['category'=>$category]);
+        return view('Admin.News.news_add',['category'=>$category,'name'=>$name]);
     }
 
     // 接值入库
     public function news_data()
     {
-    	
+
     	$n_title=Input::get('n_title');
     	$c_id=Input::get('c_id');
     	$n_content=Input::get('n_content');
     	$n_addtime=time();
-    	$n_author='刘威'; //添加人根据登录账号获取
+		$session = new session;
+		$name = $session->get('admin_name');
+    	$n_author=$name; //添加人根据登录账号获取
     	$res=DB::insert(
     		'insert into dh_news(n_title,n_content,n_addtime,n_author,c_id)values(?,?,?,?,?)',
     		["$n_title","$n_content","$n_addtime","$n_author","$c_id"]
@@ -93,24 +103,27 @@ class NewsController extends CommonController
     //新闻详情页
     public function detail($n_id)
     {
-		
+		$session = new session;
+		$name = $session->get('admin_name');
     	$data=DB::table('news')->where(['n_id'=>$n_id])->first();
     	//查找上一篇的标题
         $data1=DB::table('news')->where(['n_id'=>$n_id-1])->first();
         //查找上一篇的标题
         $data2=DB::table('news')->where(['n_id'=>$n_id+1])->first();
-    	return view('Admin.News.detail',['data'=>$data,'data1'=>$data1,'data2'=>$data2]);
+    	return view('Admin.News.detail',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'name'=>$name]);
     }
 
     //上一篇
     protected function getPrevArticleId($n_id)
   	{
+		$session = new session;
+		$name = $session->get('admin_name');
     	$n_id=News::where('n_id', '<', $n_id)->max('n_id');
     	if(!empty($n_id))
     	{
     		$data=DB::table('news')->where(['n_id'=>$n_id])->first();
             
-    		return view('Admin.News.detail',['data'=>$data]);
+    		return view('Admin.News.detail',['data'=>$data,'name'=>$name]);
     	}else{
     		echo "<script>alert('当前为第一篇');history.go(-1);</script>";
     	}
@@ -119,11 +132,12 @@ class NewsController extends CommonController
   	//下一篇
   	protected function getNextArticleId($n_id)
 	{
-
+		$session = new session;
+		$name = $session->get('admin_name');
     	$n_id=News::where('n_id', '>', $n_id)->min('n_id');
     	if(!empty($n_id))
     	{
-    		$data=DB::table('news')->where(['n_id'=>$n_id])->first();
+    		$data=DB::table('news')->where(['n_id'=>$n_id,'name'=>$name])->first();
     	    
     		return view('Admin.News.detail',['data'=>$data]);
     	}else{

@@ -12,13 +12,9 @@
                 <li class="noRight"><a href="module.html">DouPHP+</a></li>
             </ul>
             <ul class="navRight">
-                <li class="M noLeft"><a href="JavaScript:void(0);">您好，admin</a>
-                    <div class="drop mUser">
-                        <a href="manager.php?rec=edit&id=1">编辑我的个人资料</a>
-                        <a href="manager.php?rec=cloud_account">设置云账户</a>
-                    </div>
+                <li class="M noLeft"><a href="JavaScript:void(0);">您好，{{$name}}</a>
                 </li>
-                <li class="noRight"><a href="login.php?rec=logout">退出</a></li>
+                <li class="noRight"><a href="login_out">退出</a></li>
             </ul>
         </div>
     </div>

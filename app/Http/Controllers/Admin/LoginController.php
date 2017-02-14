@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 //字符编码
 header("content-type:text/html;charset=utf-8");
 
-
 use App\Http\Model\Admin;
 use App\libs\Crypt\Crypt;
 use Illuminate\Support\Facades\DB;
@@ -12,8 +11,6 @@ use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Session;
 class LoginController extends CommonController
 {
-
-
 
     //跳转到登陆页面
     public function login(){

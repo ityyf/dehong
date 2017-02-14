@@ -7,20 +7,26 @@ use DB;
 use App\Role;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 class RbacController extends CommonController
 {
 
 	//角色列表
 	public function role_list()
 	{
+		$session = new session;
+		$name = $session->get('admin_name');
 		$role_list=DB::table('role')->get();
-		return view('Admin.Rbac.role_list',['role_list'=>$role_list]);
+		return view('Admin.Rbac.role_list',['role_list'=>$role_list,'name'=>$name]);
 	}
 
 	//角色添加
 	public function role_add()
 	{
-		return view('Admin.Rbac.role_add');
+		$session = new session;
+		$name = $session->get('admin_name');
+		return view('Admin.Rbac.role_add',['name'=>$name]);
 	}
 
 	//角色添加执行
@@ -75,8 +81,10 @@ class RbacController extends CommonController
 	//角色编辑
 	public function role_editor($r_id)
 	{
+		$session = new session;
+		$name = $session->get('admin_name');
 		$data=DB::table('role')->where(['r_id'=>$r_id])->first();
-		return view('Admin.Rbac.role_editor',['data'=>$data]);
+		return view('Admin.Rbac.role_editor',['data'=>$data,'name'=>$name]);
 	}
 
 	//角色编辑执行

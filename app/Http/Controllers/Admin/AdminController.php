@@ -71,7 +71,7 @@ class AdminController extends CommonController
     public function admin_information()
     {
         $session = new session;
-        $name = $session->get('admin_name');
+        $name = $session->get('admin_name');  
         $id =  Input::get('id');
         $adminInformation = DB::table('admin')->where('admin_id',$id)->get();
         return view('admin.admin.admin_information',['name'=>$name,'information'=>$adminInformation]);
@@ -83,7 +83,7 @@ class AdminController extends CommonController
         $session = new session;
         $name = $session->get('admin_name');
         $adminMsg = DB::table('admin')->where('admin_id',$id)->get();
-        return view('admin.admin.admin_update',['adminMsg'=>$adminMsg,'name'=>$name]);
+        return view('admin.admin.admin_update',['name'=>$name,'adminMsg'=>$adminMsg]);
     }
 
     public function admin_handle()

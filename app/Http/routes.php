@@ -102,8 +102,6 @@ Route::any('admin/role_editor/{r_id?}','Admin\RbacController@role_editor');
 Route::any('admin/role_update/{r_id?}','Admin\RbacController@role_update');
 
 
-
-//Route::any('/login','admin/LoginController@login');
 Route::any('/check_login','admin/LoginController@check_login');
 //跳转到首页
 Route::any('home/index','Home\IndexController@index');
