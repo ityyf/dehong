@@ -62,6 +62,7 @@ return [
             'database'  => 'dehong',
             'username'  => 'root',
             'password'  => 'root',
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_general_ci',
             'collation' => 'utf8_unicode_ci',
@@ -73,11 +74,11 @@ return [
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
+            'database' => env('DB_DATABASE', 'dehong'),
+            'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
-            'prefix'   => '',
+            'prefix'   => 'dh_',
             'schema'   => 'public',
         ],
 
