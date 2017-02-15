@@ -13,13 +13,13 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class CommonController extends Controller
 {
    public function __construct(){
-       /*$session = new session;
+       $session = new session;
        $admin_id = $session->get('admin_id');
        $url = Input::url();
        $urlArray=parse_url($url);
        $location =  strrpos ($urlArray['path'],'/');
        $action = substr($urlArray['path'],$location+1);
-       $powerArray = DB::select("select DISTINCT dh_power.p_action from dh_admin_role 
+       $powerArray = DB::select("select DISTINCT dh_power.p_action,dh_power.p_name from dh_admin_role 
                     INNER JOIN dh_role ON dh_admin_role.role_id=dh_role.r_id  
                     INNER JOIN dh_power_role ON dh_power_role.role_id=dh_role.r_id
                     INNER JOIN dh_power on dh_power.p_id=dh_power_role.power_id
@@ -27,10 +27,30 @@ class CommonController extends Controller
        $powerArray =  json_encode($powerArray);
        $powerArray = json_decode($powerArray,true);
        $powerArray=array_column($powerArray,'p_action');
-       if(!in_array($action,$powerArray))
+      if(!in_array($action,$powerArray))
        {
            echo "<script>alert('对不起您没有访问权限');history.go(-1)</script>";die;
-       }*/
+       }
+       //操作日志记录
+           //操作的方法
+       if($action != 'log_list'&&$action!='deletemore')
+       {
+           $logArray = DB::select("select  DISTINCT dh_power.p_name from dh_admin_role 
+                        INNER JOIN dh_role ON dh_admin_role.role_id=dh_role.r_id  
+                        INNER JOIN dh_power_role ON dh_power_role.role_id=dh_role.r_id
+                        INNER JOIN dh_power on dh_power.p_id=dh_power_role.power_id
+                        WHERE dh_power.p_action='$action'");
+           //设置中国时区
+           date_default_timezone_set('PRC');
+           $addLog = array(
+               'log_addtime'=>date("Y-m-d H:i:s"),
+               'log_value'=>$logArray[0]->p_name,
+               'log_ip'=>$_SERVER['REMOTE_ADDR'],
+               'admin_id'=>$admin_id
+           );
+           DB::table('log')->insert($addLog);
+       }
+
   }
 }
 ?>

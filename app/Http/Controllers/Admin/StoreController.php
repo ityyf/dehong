@@ -18,9 +18,11 @@ class StoreController extends CommonController
 {
      // 门店列表
      public function store_list(){
-        $info=DB::table('store')->simplePaginate($perPage = 5, $columns = ['*'], $pageName = 'page',$page='4');;
+         $session = new session;
+         $name = $session->get('admin_name');
+         $info=DB::table('store')->simplePaginate($perPage = 5, $columns = ['*'], $pageName = 'page',$page='4');;
 //          print_r($info);die;
-        return view('Admin.Store.store_list',['store'=>$info]);
+        return view('Admin.Store.store_list',['store'=>$info,'name'=>$name]);
      }
       // 删除门店
      public  function store_del(Request $request){
@@ -37,7 +39,9 @@ class StoreController extends CommonController
 
      //门店新增
      public function store_add(){
-          return view('Admin.Store.store_add');
+         $session = new session;
+         $name = $session->get('admin_name');
+          return view('Admin.Store.store_add',['name'=>$name]);
      }
 
     //执行门店新增

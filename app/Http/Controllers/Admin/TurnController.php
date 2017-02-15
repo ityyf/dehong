@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Storage;
 use App\Http\Requests;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 
@@ -14,14 +15,18 @@ class TurnController extends CommonController
     //轮播展示页面
     public function turn_list()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         $info = DB::table('album')->orderby('a_order','DESC')->take(6)->get();
 //        print_r($info);die;
-        return view('Admin.turn.turn_list',['info'=>$info]);
+        return view('Admin.turn.turn_list',['info'=>$info,'name'=>$name]);
     }
     //轮播展示页面
     public function turn_add()
     {
-        return view('Admin.turn.turn_add');
+        $session = new session;
+        $name = $session->get('admin_name');
+        return view('Admin.turn.turn_add',['name'=>$name]);
     }
     //轮播图上传
     public function turn_adds(Request $request)

@@ -13,12 +13,16 @@ use App\Http\Requests;
 class FirmController extends CommonController{
     //企业文化列表页
     public function firm_list(){
+        $session = new session;
+        $name = $session->get('admin_name');
         $info=DB::table('firm')->get();
-        return view('admin.firm.firm_list',['info'=>$info]);
+        return view('admin.firm.firm_list',['info'=>$info,'name'=>$name]);
     }
    //企业添加页面
     public function firm_add(){
-      return view('admin.firm.firm_add');
+        $session = new session;
+        $name = $session->get('admin_name');
+      return view('admin.firm.firm_add',['name'=>$name]);
     }
    // 企业添加操作
     public function firm_adds(Request $request)
@@ -88,22 +92,26 @@ class FirmController extends CommonController{
 
     // 公司简介页面
     public function firm_lists(Request $request){
+        $session = new session;
+        $name = $session->get('admin_name');
         $inf = $request->all();
 //        print_r($info);die;
         $info=DB::table('firm')->where('f_id','=',$inf['f_id'])->get();
 //        print_r($info);die;
-        return view('admin.firm.firm_lists',['info'=>$info]);
+        return view('admin.firm.firm_lists',['info'=>$info,'name'=>$name]);
     }
 
    //修改页面
     public function firm_update(Request $request){
+        $session = new session;
+        $name = $session->get('admin_name');
         $inf = $request->all();
         if($inf==false){
             echo    "<script>alert('没查询到要修改的数据');location.href='firm_list';</script>";die;
         }
         $info=DB::table('firm')->where('f_id','=',$inf['f_id'])->get();
 //        print_r($info);die;
-        return view('admin.firm.firm_update',['info'=>$info]);
+        return view('admin.firm.firm_update',['info'=>$info,'name'=>$name]);
     }
     
      //执行修改

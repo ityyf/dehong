@@ -118,6 +118,11 @@ Route::any('admin/store_del','Admin\StoreController@store_del');
 Route::any('admin/store_add','Admin\StoreController@store_add');
 Route::any('admin/store_adds','Admin\StoreController@store_adds');
 //Route::get('admin/store_list','Admin\StoreController@store_list');
+//日志管理
+//日志列表
+Route::any('admin/log_list','Admin\LogController@log_list');
+//日志批量删除
+Route::any('admin/deletemore','Admin\LogController@deletemore');
 
 //公司管理模块
 Route::get('admin/firm_list','Admin\FirmController@firm_list');

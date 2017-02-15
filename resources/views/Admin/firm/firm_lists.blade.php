@@ -96,8 +96,8 @@
     @include('Admin.admin_public.main')
     <div id="dcMain">
         <!-- 当前位置 -->
-        <div id="urHere">DouPHP 管理中心<b>></b><strong>门店管理</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="firm_add" class="actionBtn add">添加门店</a>企业简介<span id="inner" style="font-size: 18px"></span></h3>
+        <div id="urHere">DouPHP 管理中心<b>></b><strong>企业文化管理</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3><a href="firm_add" class="actionBtn add">添加企业文化</a>企业简介<span id="inner" style="font-size: 18px"></span></h3>
             @foreach($info as $data)
             <?php echo html_entity_decode($data->f_nickname) ?>
             @endforeach
