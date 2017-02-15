@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 //字符编码
 header("content-type:text/html;charset=utf-8");
 
-
 use Illuminate\Http\Request;
 use App\Http\Model\Admin;
 use Illuminate\Support\Facades\DB;

@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class CommonController extends Controller
 {
    public function __construct(){
-       $session = new session;
+       /*$session = new session;
        $admin_id = $session->get('admin_id');
        $url = Input::url();
        $urlArray=parse_url($url);
@@ -30,7 +30,7 @@ class CommonController extends Controller
        if(!in_array($action,$powerArray))
        {
            echo "<script>alert('对不起您没有访问权限');history.go(-1)</script>";die;
-       }
+       }*/
   }
 }
 ?>
