@@ -30,15 +30,15 @@
         </ul>
         <ul>
             <li><a href="product_add"><i class="nav"></i><em>产品添加</em></a></li>
-            <li><a href="product_list"><i class="nav"></i><em>产品列表</em></a></li>
+            <li><a href="product_list"><i class="product"></i><em>产品列表</em></a></li>
         </ul>
         <!--  <ul>
               <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>
               <li><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>
           </ul>-->
         <ul>
-            <li><a href="classify_list"><i class="articleCat"></i><em>房屋分类</em></a></li>
-            <li><a href="article_list"><i class="article"></i><em>房屋列表</em></a></li>
+            <li><a href="category_add"><i class="article"></i><em>分类添加</em></a></li>
+            <li><a href="category_list"><i class="articleCat"></i><em>分类列表</em></a></li>
         </ul>
         <ul>
             <li><a href="order_list"><i class="articleCat"></i><em>订单列表</em></a></li>

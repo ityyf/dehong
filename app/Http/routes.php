@@ -63,6 +63,15 @@ Route::any('admin/recover','Admin\ProductController@recover');
 Route::any('admin/restore','Admin\ProductController@restore');
 Route::any('admin/destory','Admin\ProductController@destory');
 
+//分类
+Route::any('admin/category_list','Admin\CategoryController@category_list');
+Route::any('admin/category_add','Admin\CategoryController@category_add');
+Route::any('admin/category_add_exec','Admin\CategoryController@category_add_exec');
+Route::any('admin/category_del','Admin\CategoryController@category_del');
+Route::any('admin/category_edit','Admin\CategoryController@category_edit');
+Route::any('admin/category_edit_exec','Admin\CategoryController@category_edit_exec');
+
+
 
 
 
