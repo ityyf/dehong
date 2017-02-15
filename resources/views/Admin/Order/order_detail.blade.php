@@ -33,25 +33,25 @@
                 <tr>
                     <td align="right">价格</td>
                     <td>
-                        <span class="spanMain">{{$order_info->price}}</span>
+                        <span class="spanMain">{{$order_info->price}}元</span>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">购买数量</td>
                     <td>
-                        <span class="spanMain">{{$order_info->o_num}}</span>
+                        <span class="spanMain">{{$order_info->o_num}}元</span>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">总额</td>
                     <td>
-                        <span class="spanMain">{{$order_info->o_num * $order_info->price}}</span>
+                        <span class="spanMain">{{$order_info->o_num * $order_info->price}}元</span>
                     </td>
                 </tr>
                 <tr>
                     <td align="right">预购价格</td>
                     <td>
-                        <span class="spanMain">{{$order_info->o_price}}</span>
+                        <span class="spanMain">{{$order_info->o_price}}元</span>
                     </td>
                 </tr>
                 <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use PhpParser\Node\Scalar\DNumber;
 use Storage;
 use App\Http\Requests;
 
@@ -116,18 +117,162 @@ class ProductController extends CommonController
      * 产品展示
      *
      * @author 梦境
-     * @return [type] [description]
+     * @return void
      */
     public function product_list()
     {
+        //搜索条件
+        $data = Input::get();
+        $where = [];
     	 //产品分类
         $cate_list = DB::table('category')->select('c_id','c_name')->where(['c_type'=>1])->get();
+
         //产品信息
-        $product_list = DB::table('product')
-                        ->where('is_del','=',1)
+        $product_list = DB::table('product');
+        //判断产品名
+        if (!empty($data['name']))
+        {
+            $where['name'] = $data['name'];
+            $product_list->where('p_name', 'like', '%'.trim($data['name']).'%');
+        }
+
+        //判断开始时间
+        if (!empty($data['addtime']))
+        {
+            $where['addtime'] = $data['addtime'];
+            $product_list->where('addtime','>=',strtotime($data['addtime']));
+        }
+
+        //判断结束时间
+        if (!empty($data['oldtime']))
+        {
+            $where['oldtime'] = $data['oldtime'];
+            $product_list->where('addtime','<=',strtotime($data['oldtime']));
+        }
+        $product = $product_list->where('is_del','=',1)
                         ->orderBy('p_id','desc')
                         ->paginate(3);
-         return view('admin.Product.product_list',['product_list'=>$product_list]);
+         return view('admin.Product.product_list',['product_list'=>$product,'search'=>$where]);
+    }
+
+    /**
+     * 产品信息编辑
+     *
+     * @author 梦境
+     * @return void
+     */
+    public function product_save()
+    {
+        $id = Input::get();
+        //产品分类
+        $cate_list = DB::table('category')->select('c_id','c_name')->where(['c_type'=>1])->get();
+        $product_info = DB::table('product')
+                        ->join('pro_detail','product.p_id','=','pro_detail.p_id')
+                        ->where(['product.p_id'=>$id])
+                        ->first();
+        return view('admin.Product.product_save',['product_info'=>$product_info,'cate_list'=>$cate_list]);
+    }
+
+    /**
+     * 产品信息修改
+     *
+     * @author 梦境
+     * @return void
+     */
+    public function product_save_exec()
+    {
+        $file = Input::file('a_url');
+        $data = Input::get();
+        //返回提示信息
+        $result = [
+            'title'=>'提示信息',
+            'msg'=>'',
+            'url'=>'',
+            'wait'=>3
+        ];
+
+        //产品基本信息
+        $product = [
+            'p_name'=>$data['p_name'],
+            'c_id'=>$data['c_id'],
+            'price'=>$data['price'],
+            'num'=>$data['num'],
+            'is_hot'=>$data['is_hot'],
+            'is_new'=>$data['is_new'],
+            'p_desc'=>$data['p_desc'],
+            'is_sell'=>$data['is_sell'],
+            'is_offer'=>$data['is_offer'],
+            'addtime'=>time(),
+        ];
+        if (empty($data['p_sn']))
+        {
+            $product['p_sn'] = 'dh_'.time();
+        }
+        else
+        {
+            $product['p_sn'] = $data['p_sn'];
+        }
+        $re = DB::table('product')->where(['p_id'=>$data['p_id']])->update($product);
+        if ($re)
+        {
+            //查询相册是否修改
+            if (empty($file))
+            {
+                //删除原有文件
+                $alb_list = DB::table('album')->where(['p_id'=>$data['p_id']])->get();
+                foreach($alb_list as $k=>$v)
+                {
+                    unlink('.'.$v->a_url);
+                }
+                $alb_del = DB::table('album')->where(['p_id'=>$data['p_id']])->delete();
+                if ($alb_del)
+                {
+                    //添加产品相册
+                    //图片路径
+                    $album = [];
+                    $num = count($file);
+                    for ($i=0;$i<$num;$i++)
+                    {
+                        $album[$i]['a_url'] = $this->uploads($file[$i]);
+                        $album[$i]['a_type'] = 1;
+                        $album[$i]['a_desc'] = $data['a_desc'];
+                        $album[$i]['p_id'] = $data['p_id'];
+                    }
+                    //产品相册入库
+                    $album_info = DB::table('album')->insert($album);
+                }
+            }
+            else
+            {
+                $album_info = 1;
+            }
+            //产品详情修改
+            $detail = [
+                'd_offer'=>$data['d_offer'],
+                'promise'=>$data['promise'],
+                'aftermarket'=>$data['aftermarket'],
+                'detail'=>$data['detail'],
+            ];
+            $detail_info = DB::table('pro_detail')->where(['p_id'=>$data['p_id']])->update($detail);
+
+            if ($album_info != 0 && $detail_info != 0)
+            {
+                $result['msg'] = '修改产品信息成功';
+                $result['url'] = 'product_list';
+            }
+            else
+            {
+                $result['msg'] = '修改产品信息失败';
+                $result['url'] = 'product_add';
+            }
+        }
+        else
+        {
+            $result['msg'] = '修改产品信息失败';
+            $result['url'] = 'product_add';
+        }
+        return view('admin.Product.message',$result);
+
     }
 
     /**
@@ -142,6 +287,22 @@ class ProductController extends CommonController
         $ids = explode(',',substr($ids,0,strlen($ids)-1));
         $re = DB::table('product')->whereIn('p_id',$ids)->update(['is_del' => 0]);;
         echo $re;
+    }
+
+    /**
+     * 加入回收站
+     *
+     * @author 梦境
+     * @return $re  int
+     */
+    public function product_del()
+    {
+        $id = Input::get('id');
+        $re = DB::table('product')->where(['p_id'=>$id])->update(['is_del' => 0]);;
+        if ($re)
+        {
+            return redirect('admin/product_list');
+        }
     }
 
     /**
@@ -204,7 +365,7 @@ class ProductController extends CommonController
             $type = $file->getClientMimeType();     // image/jpeg
 
             // 上传文件
-            $filename = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
+            $filename = date('Y-m-d') . '-' . uniqid() . '.' . $ext;
             // 使用我们新建的uploads本地存储空间（目录）
             $bool = Storage::disk('uploads')->put($filename, file_get_contents($realPath));
             return '/public/uploads/'.$filename;

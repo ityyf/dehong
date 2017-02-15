@@ -54,6 +54,9 @@ Route::any('admin/product_add_exec','Admin\ProductController@product_add_exec');
 Route::any('admin/product_list','Admin\ProductController@product_list');
 Route::any('admin/product_dels','Admin\ProductController@product_dels');
 Route::any('admin/product_edit','Admin\ProductController@product_edit');
+Route::any('admin/product_save','Admin\ProductController@product_save');
+Route::any('admin/product_save_exec','Admin\ProductController@product_save_exec');
+Route::any('admin/product_del','Admin\ProductController@product_del');
 
 
 

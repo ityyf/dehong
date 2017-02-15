@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>DouPHP 管理中心 - 订单列表 </title>
+    <title>DouPHP 管理中心 - 产品列表 </title>
     <meta name="Copyright" content="Douco Design." />
     <link href="/public/css/public.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/public/js/jquery.min.js"></script>
@@ -21,10 +21,10 @@
     @include('Admin.admin_public.main')
     <div id="dcMain">
         <!-- 当前位置 -->
-        <div id="urHere">DouPHP 管理中心<b>></b><strong>订单列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3>订单列表</h3>
+        <div id="urHere">DouPHP 管理中心<b>></b><strong>产品列表</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+            <h3>产品列表</h3>
             <div class="filter">
-                <form action="order_list" method="get">
+                <form action="product_list" method="get">
                     <input name="name" type="text" class="inpMain"  size="20" placeholder="产品名称" />
                     <input name="addtime" type="text" class="inpMain" onClick="WdatePicker()" size="10" placeholder="开始时间"  />
                     <input name="oldtime" type="text" class="inpMain" onClick="WdatePicker()"  size="10" placeholder="结束时间" />
@@ -38,7 +38,7 @@
                             <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
                             <th align="center">编号</th>
                             <th align="center" >产品名称</th>
-                            <th align="center">价格</th>
+                            <th align="center">售价</th>
                             <th align="center">数量</th>
                             <th align="center">简介</th>
                             <th width="50" align="center">是否上架</th>
@@ -84,8 +84,8 @@
                                 </td>
                                 <td align="center">{{date('Y-m-d',$val->addtime)}}</td>
                                 <td align="center">
-                                    <a href="order_detail?id={{$val->p_id}}">详情</a> |
-                                    <a href="order_del/{{$val->p_id}}">删除</a>
+                                    <a href="product_save?id={{$val->p_id}}">编辑</a> |
+                                    <a href="product_del?id={{$val->p_id}}">删除</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -96,7 +96,7 @@
                 </form>
             </div>
             <div class="clear"></div>
-            <div id="pagelist">{!! $product_list->links()!!}</div> </div>
+            <div id="pagelist">{!! $product_list    ->appends($search)->links()!!}</div> </div>
     </div>
     <div class="clear"></div>
     <div id="dcFooter">

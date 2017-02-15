@@ -39,7 +39,7 @@ ul { list-style:none;}
                             <th width="40" align="center">编号</th>
                             <th align="left" width="200">产品名称</th>
                             <th width="80" align="center">客户名称</th>
-                            <th width="80" align="center">价格</th>
+                            <th width="80" align="center">预购价格</th>
                             <th width="80" align="center">数量</th>
                             <th width="80" align="center">状态</th>
                             <th width="80" align="center">添加日期</th>
