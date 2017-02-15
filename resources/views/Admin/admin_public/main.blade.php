@@ -45,7 +45,7 @@
         </ul>
         <ul class="bot">
             <li><a href="backup_list"><i class="backup"></i><em>数据备份</em></a></li>
-            <li><a href="gather_list"><i class="backup"></i><em>回收站</em></a></li>
+            <li><a href="recover"><i class="backup"></i><em>回收站</em></a></li>
             <!-- <li><a href="mobile.html"><i class="mobile"></i><em>手机版</em></a></li>
              <li><a href="theme.html"><i class="theme"></i><em>设置模板</em></a></li>
              <li><a href="manager.html"><i class="manager"></i><em>网站管理员</em></a></li>

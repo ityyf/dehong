@@ -346,6 +346,60 @@ class ProductController extends CommonController
        
     }
 
+    /**
+     * 回收站展示
+     *
+     * @author 梦境
+     * @return void
+     */
+    public function recover()
+    {
+        $recover_list = DB::table('product')
+                        ->where(['is_del'=>0])
+                        ->select('p_id','p_name','p_sn','price')
+                        ->get();
+        return view('admin.Product.recover',['recover_list'=>$recover_list]);
+    }
+
+    /**
+     * 回收站还原数据
+     *
+     * @author 梦境
+     * @return void
+     */
+    public function restore()
+    {
+        $id = Input::get('id');
+        $re = DB::table('product')->where(['p_id'=>$id])->update(['is_del'=>1]);
+        if ($re)
+        {
+            return redirect('admin/recover');
+        }
+    }
+
+    /**
+     * 回收站彻底删除
+     *
+     * @author 梦境
+     * @return void
+     */
+    public function destory()
+    {
+        $id = Input::get('id');
+        //删除产品基本信息
+        $product_del = DB::table('product')->where(['p_id'=>$id])->delete();
+        //删除产品详情信息
+        $pro_detail = DB::table('pro_detail')->where(['p_id'=>$id])->delete();
+        //删除产品相册信息
+        $alb_list = DB::table('album')->where(['p_id'=>$id])->get();
+        foreach($alb_list as $k=>$v)
+        {
+            unlink('.'.$v->a_url);
+        }
+        $alb_del = DB::table('album')->where(['p_id'=>$id])->delete();
+
+        echo 1;
+    }
 
     /**
      * 图片上传

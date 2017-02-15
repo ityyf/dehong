@@ -58,6 +58,12 @@ Route::any('admin/product_save','Admin\ProductController@product_save');
 Route::any('admin/product_save_exec','Admin\ProductController@product_save_exec');
 Route::any('admin/product_del','Admin\ProductController@product_del');
 
+//回收站
+Route::any('admin/recover','Admin\ProductController@recover');
+Route::any('admin/restore','Admin\ProductController@restore');
+Route::any('admin/destory','Admin\ProductController@destory');
+
+
 
 
 //Route::any('/login','admin/LoginController@login');
