@@ -6,7 +6,7 @@
                 <li class="M"><a href="JavaScript:void(0);" class="topAdd">新建</a>
                     <div class="drop mTopad"><a href="product.php?rec=add">商品</a> <a href="article.php?rec=add">文章</a> <a href="nav.php?rec=add">自定义导航</a> <a href="show.html">首页幻灯</a> <a href="page.php?rec=add">单页面</a> <a href="manager.php?rec=add">管理员</a> <a href="link.html"></a> </div>
                 </li>
-                <li><a href="../index.php" target="_blank">查看站点</a></li>
+                <li><a href="../home/index" target="_blank">查看站点</a></li>
                 <li><a href="index.php?rec=clear_cache">清除缓存</a></li>
                 <li><a href="http://help.douco.com" target="_blank">帮助</a></li>
                 <li class="noRight"><a href="module.html">DouPHP+</a></li>
@@ -34,13 +34,19 @@
             <li><a href="slide_show"><i class="show"></i><em>会员管理</em></a></li>
             <!--   <li><a href="page.html"><i class="page"></i><em>单页面管理</em></a></li>-->
         </ul>
-        <!--  <ul>
-              <li><a href="product_category.html"><i class="productCat"></i><em>商品分类</em></a></li>
-              <li><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>
-          </ul>-->
+         <ul>
+              <li><a href="store_list"><i class="productCat"></i><em>门店管理</em></a></li>
+              {{--<li><a href="product.html"><i class="product"></i><em>商品列表</em></a></li>--}}
+          </ul>
         <ul>
             <li><a href="classify_list"><i class="articleCat"></i><em>房屋分类</em></a></li>
             <li><a href="article_list"><i class="article"></i><em>房屋列表</em></a></li>
+        </ul>
+        <ul>
+            <li><a href="firm_list"><i class="articleCat"></i><em>企业文化</em></a></li>
+        </ul>
+        <ul>
+            <li><a href="turn_list"><i class="show"></i><em>轮播图管理</em></a></li>
         </ul>
         <ul class="bot">
             <li><a href="backup_list"><i class="backup"></i><em>数据备份</em></a></li>
