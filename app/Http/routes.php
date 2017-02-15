@@ -100,7 +100,12 @@ Route::any('admin/role_delete/{r_id?}','Admin\RbacController@role_delete');
 Route::any('admin/role_editor/{r_id?}','Admin\RbacController@role_editor');
 //角色编辑执行
 Route::any('admin/role_update/{r_id?}','Admin\RbacController@role_update');
-
+Route::any('admin/power_role','Admin\RbacController@power_role');
+//角色赋予权限
+Route::any('admin/empowerment','Admin\RbacController@empowerment');
+//用户赋予角色
+Route::any('admin/admin_role','Admin\RbacController@admin_role');
+Route::any('admin/endow_role','Admin\RbacController@endow_role');
 
 Route::any('/check_login','admin/LoginController@check_login');
 //跳转到首页

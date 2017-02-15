@@ -96,6 +96,58 @@ class RbacController extends CommonController
 			echo "<script>alert('角色修改失败');self.location=document.referrer;</script>";
 		}
 	}
+	//设置权限
+	public function power_role()
+	{
+		$session = new session;
+		$name = $session->get('admin_name');
 
+		//查询出所有角色
+		$role = DB::table('role')->get();
+		//查询出所有权限
+		$power = DB::table('power')->get();
+		return view('admin.rbac.power_role',['name'=>$name,'role'=>$role,'power'=>$power]);
+	}
+	//给角色赋权
+	public function empowerment()
+	{
+		$data = Input::get();
+		foreach($data['p_id'] as $key=>$val)
+		{
+
+			$result = DB::insert("insert into dh_power_role(power_id,role_id) VALUES('$val',".$data['r_id'].")");
+		}
+		if($result)
+		{
+			echo "<script>alert('赋权成功');history.go(-1)</script>";
+		}
+
+	}
+	//给用户赋角色
+	public function admin_role()
+	{
+		$session = new session;
+		$name = $session->get('admin_name');
+		//查询出所有的管理员
+		$admin = DB::table('admin')->get();
+		//查询出所有的角色
+		$role = DB::table('role')->get();
+		return view('admin.rbac.admin_role',['admin'=>$admin,'role'=>$role,'name'=>$name]);
+
+	}
+	//给用户赋予角色
+	public function endow_role()
+	{
+		$data = Input::get();
+		foreach($data['role_id'] as $key=>$val)
+		{
+
+			$result = DB::insert("insert into dh_admin_role(admin_id,role_id) VALUES(".$data['admin_id'].",'$val')");
+		}
+		if($result)
+		{
+			echo "<script>alert('赋权成功');history.go(-1)</script>";
+		}
+	}
 
 }

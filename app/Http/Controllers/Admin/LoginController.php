@@ -3,13 +3,13 @@ namespace App\Http\Controllers\Admin;
 
 //字符编码
 header("content-type:text/html;charset=utf-8");
-
+use App\Http\Controllers\Controller;
 use App\Http\Model\Admin;
 use App\libs\Crypt\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Symfony\Component\HttpFoundation\Session\Session;
-class LoginController extends CommonController
+class LoginController extends Controller
 {
 
     //跳转到登陆页面
@@ -24,6 +24,7 @@ class LoginController extends CommonController
                 {
                     $session = new session();
                     $session->set('admin_name',$admin->admin_name);
+                    $session->set('admin_id',$admin->admin_id);
                     //修改登录时间
                     date_default_timezone_set('PRC');
                     $login_ip = $_SERVER['REMOTE_ADDR'];
@@ -32,6 +33,7 @@ class LoginController extends CommonController
                         'login_time'=>$login_time,
                         'login_ip'=>$login_ip
                     );
+                    
                     DB::table('admin')->where('admin_id',$admin->admin_id)->update($login_update);
                     return redirect('admin/index');
 

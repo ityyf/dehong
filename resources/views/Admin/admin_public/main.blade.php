@@ -36,7 +36,9 @@
           </ul>-->
         <ul>
             <li><a href="classify_list"><i class="articleCat"></i><em>房屋分类</em></a></li>
-            <li><a href="article_list"><i class="article"></i><em>房屋列表</em></a></li>
+            <li><a href="{{url('admin/power_list')}}"><i class="article"></i><em>权限列表</em></a></li>
+            <li><a href="{{url('admin/admin_list')}}"><i class="article"></i><em>管理员列表</em></a></li>
+            <li><a href="{{url('admin/power_role')}}"><i class="theme"></i><em>设置权限</em></a></li>
             <li><a href="{{url('admin/news_list')}}"><i class="article"></i><em>新闻列表</em></a></li>
             <li><a href="{{url('admin/role_list')}}"><i class="article"></i><em>角色列表</em></a></li>
         </ul>
