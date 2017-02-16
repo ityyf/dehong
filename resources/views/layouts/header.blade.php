@@ -49,7 +49,7 @@
 						<div class="clearfix"> </div>
 					</div><!-- //navigation -->
 				</div>
-				<div class="clearfix"> </div>
+				<div class="clearfix"></div>
 			</div>	
 		</nav>		
 	</div>	

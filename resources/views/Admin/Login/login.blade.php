@@ -13,8 +13,11 @@
 <div class="login">
 	<div class="loginmain">
 		<h2>登录管理系统</h2>
+			@if(session('message'))
+			<p style="color:red">{{session('message')['msg']}}</p>
+			@endif
 		<!--	<form action="#" class="form-horizontal">-->
-                <form action="index" method="post" onsubmit="return checksubmit()" name="form1" class="form-horizontal">
+                <form action=" " method="post"  name="form1" class="form-horizontal">
 		           <!-- 让表单在一行中显示form-horizontal -->
 		          <div class="form-group">
 		              <label for="username" class="col-lg-1 control-label">用户名</label>

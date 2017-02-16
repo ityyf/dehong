@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+//字符编码
+header("content-type:text/html;charset=utf-8");
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +10,8 @@ use Illuminate\Support\Facades\Input;
 use PhpParser\Node\Scalar\DNumber;
 use Storage;
 use App\Http\Requests;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 
 class ProductController extends CommonController
 {
@@ -20,10 +24,12 @@ class ProductController extends CommonController
      */
     public function product_add()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         //产品分类
         $cate_list = DB::table('category')->select('c_id','c_name')->where(['c_type'=>1])->get();
         
-        return view('admin.Product.product_add',['cate_list'=>$cate_list]);
+        return view('admin.Product.product_add',['cate_list'=>$cate_list,'name'=>$name]);
     }
 
     /**
@@ -121,6 +127,8 @@ class ProductController extends CommonController
      */
     public function product_list()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         //搜索条件
         $data = Input::get();
         $where = [];
@@ -152,7 +160,7 @@ class ProductController extends CommonController
         $product = $product_list->where('is_del','=',1)
                         ->orderBy('p_id','desc')
                         ->paginate(3);
-         return view('admin.Product.product_list',['product_list'=>$product,'search'=>$where]);
+         return view('admin.Product.product_list',['product_list'=>$product,'search'=>$where,'name'=>$name]);
     }
 
     /**
@@ -163,6 +171,8 @@ class ProductController extends CommonController
      */
     public function product_save()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         $id = Input::get();
         //产品分类
         $cate_list = DB::table('category')->select('c_id','c_name')->where(['c_type'=>1])->get();
@@ -170,7 +180,7 @@ class ProductController extends CommonController
                         ->join('pro_detail','product.p_id','=','pro_detail.p_id')
                         ->where(['product.p_id'=>$id])
                         ->first();
-        return view('admin.Product.product_save',['product_info'=>$product_info,'cate_list'=>$cate_list]);
+        return view('admin.Product.product_save',['product_info'=>$product_info,'cate_list'=>$cate_list,'name'=>$name]);
     }
 
     /**
@@ -354,11 +364,13 @@ class ProductController extends CommonController
      */
     public function recover()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         $recover_list = DB::table('product')
                         ->where(['is_del'=>0])
                         ->select('p_id','p_name','p_sn','price')
                         ->get();
-        return view('admin.Product.recover',['recover_list'=>$recover_list]);
+        return view('admin.Product.recover',['recover_list'=>$recover_list,'name'=>$name]);
     }
 
     /**

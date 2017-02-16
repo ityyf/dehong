@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+//字符编码
+header("content-type:text/html;charset=utf-8");
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
