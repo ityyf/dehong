@@ -177,7 +177,7 @@ Route::any('admin/message_list','Admin\MessageController@message_list');
 /*Route::any('/check_login','admin/LoginController@check_login');*/
 //跳转到首页
 Route::any('home/index','Home\IndexController@index');
-Route::any('home/AboutController','Home\AboutController@about');
+Route::any('home/about','Home\AboutController@about');
 Route::any('home/contact','Home\ContactController@contact');
 Route::any('home/news','Home\NewsController@news');
 Route::any('home/icons','Home\IconsController@icons');
