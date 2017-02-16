@@ -40,31 +40,27 @@
 			<h2 class="w3ls-title1">联系 <span>我们</span></h2>
 			<div class="contact-agileitsinfo">
 				<div class="col-md-8 contact-grids">
-					<h5>传千载文化，造百年经典。不求量而求精，试看后人来评定。</h5>
-					<p>传千载文化，造百年经典。不求量而求精，试看后人来评定。传千载文化，造百年经典。不求量而求精，试看后人来评定。传千载文化，造百年经典。不求量而求精，试看后人来评定。传千载文化，造百年经典。不求量而求精，试看后人来评定。 </p>
+					<h5>{{$contact_info->f_name}}</h5>
+					<p>{{$contact_info->f_nickname}}</p>
 					<div class="contact-w3form">
 						<h3 class="w3ls-title1">输入您的信息</h3>
-						<form action="#" method="post"> 
-							<textarea name="Message" placeholder="输入留言" required=""></textarea>
-							<input type="text" name="Name" placeholder="您的名称" required=""/>
-							<input type="text" name="Email" placeholder="您的邮箱" required=""/>
-							<input type="submit" value="发送给我们">
+						<form action="/index.php/home/message_add" method="post" >
+							<textarea name="m_desc" placeholder="输入留言" required=""></textarea>
+							<input type="text" name="commenter" placeholder="您的名称" required=""/>
+							<input type="text" name="m_phone" placeholder="您的手机号" pattern="^1\d{10}$" required/>
+							<input type="submit" id="sub" value="发送给我们">
 						</form>
 					</div>
 				</div>
 				<div class="col-md-4 contact-grids">
 					<div class="cnt-address">
-						<h3 class="w3ls-title1">地址</h3>
-						<h4>河北省廊坊市</h4>
-						<p>123 T. Globel Place,
-							<span>CG 09-123</span>
-							London, Ba. 4567
-						</p>
-						<h4>电话</h4>
-						<p>Telephone: 17839195312
-							<span>FAX: +1 011 222 8887</span>
-							E-mail: <a href="mailto:info@example.com">mail@example.com</a>
-						</p>
+						<h3 class="w3ls-title1">联系方式</h3>
+						<p>电话：{{$contact_info->f_tel}}</p>
+						<p>手机：{{$contact_info->f_phone}}</p>
+						<p>联系人：{{$contact_info->f_contact}}</p>
+						<p>邮箱：{{$contact_info->f_email}}</p>
+						<p>网址：{{$contact_info->f_url}}</p>
+						<p>地址：{{$contact_info->f_address}}</p>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -155,5 +151,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.js"></script>
+	<script>
+		$('#sub').click(function(){
+
+		})
+	</script>
 </body>
 </html>
