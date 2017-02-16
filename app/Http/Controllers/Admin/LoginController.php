@@ -3,6 +3,8 @@ namespace App\Http\Controllers\Admin;
 
 //字符编码
 header("content-type:text/html;charset=utf-8");
+
+
 use App\Http\Controllers\Controller;
 use App\Http\Model\Admin;
 use App\libs\Crypt\Crypt;

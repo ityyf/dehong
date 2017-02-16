@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+//字符编码
+header("content-type:text/html;charset=utf-8");
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 
 class OrderController extends CommonController
 {
@@ -15,6 +19,8 @@ class OrderController extends CommonController
  	 * @return void
  	 */
     public function order_list(){
+		$session = new session;
+		$name = $session->get('admin_name');
 		$data = Input::get();
 		$where = [];
 		$order_list = DB::table('order');
@@ -43,7 +49,7 @@ class OrderController extends CommonController
     					->select('order.*','product.p_name','p_sn')
 						->orderBy('o_id','desc')
     					->paginate(3);
-        return view('admin.Order.order_list',['order_list'=>$order,'search'=>$where]);
+        return view('admin.Order.order_list',['order_list'=>$order,'search'=>$where,'name'=>$name]);
     }
 
 	/**

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+//字符编码
+header("content-type:text/html;charset=utf-8");
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +11,8 @@ use Illuminate\Support\Facades\Input;
 use PhpParser\Node\Scalar\DNumber;
 use Storage;
 use App\Http\Requests;
+use Symfony\Component\HttpFoundation\Session\Session;
+
 
 class CategoryController extends CommonController
 {
@@ -19,13 +24,17 @@ class CategoryController extends CommonController
     ];
     public function category_list()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         $cate_list = DB::table('category')->orderBy('c_type','asc')->get();
-        return view('admin.Category.category_list',['cate_list'=>$cate_list]);
+        return view('admin.Category.category_list',['cate_list'=>$cate_list,'name'=>$name]);
     }
     
     public function category_add()
     {
-        return view('admin.Category.category_add');
+        $session = new session;
+        $name = $session->get('admin_name');
+        return view('admin.Category.category_add',['name'=>$name]);
     }
 
     public function category_add_exec()
@@ -66,9 +75,11 @@ class CategoryController extends CommonController
 
     public function category_edit()
     {
+        $session = new session;
+        $name = $session->get('admin_name');
         $id = Input::get('id');
         $cate_info = DB::table('category')->where(['c_id'=>$id])->first();
-        return view('admin.Category.category_edit',['cate_info'=>$cate_info]);
+        return view('admin.Category.category_edit',['cate_info'=>$cate_info,'name'=>$name]);
     }
     
     public function category_edit_exec()

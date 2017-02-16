@@ -107,8 +107,6 @@ Route::any('admin/empowerment','Admin\RbacController@empowerment');
 Route::any('admin/admin_role','Admin\RbacController@admin_role');
 Route::any('admin/endow_role','Admin\RbacController@endow_role');
 
-//新加房屋
-Route::get('admin/article_add','Admin\ArticleController@article_add');
 
 //门店管理列表
 Route::get('admin/store_list','Admin\StoreController@store_list');
@@ -169,6 +167,8 @@ Route::any('admin/category_del','Admin\CategoryController@category_del');
 Route::any('admin/category_edit','Admin\CategoryController@category_edit');
 Route::any('admin/category_edit_exec','Admin\CategoryController@category_edit_exec');
 
+//留言
+Route::any('admin/message_list','Admin\MessageController@message_list');
 
 
 
