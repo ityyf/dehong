@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\DB;
 class AboutController extends CommonController
 {
 	//公司简介
-	public function about(){
-		
-    	return view('index/about');
+	public function about()
+	{
+		$firm = DB::table('firm')->where(['f_id'=>1])->first();
+    	return view('index/about',['firm'=>$firm]);
     }
 
 

@@ -17,7 +17,7 @@
     <div id="dcMain">
         <!-- 当前位置 -->
         <div id="urHere">DouPHP 管理中心<b>></b><strong>产品添加</strong> </div>   <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
-            <h3><a href="nav.php" class="actionBtn">产品列表</a>产品添加</h3>
+            <h3><a href="product_list" class="actionBtn">产品列表</a>产品添加</h3>
             <script type="text/javascript">
 
                 $(function(){ $(".idTabs").idTabs(); });
