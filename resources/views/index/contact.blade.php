@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Contact</title>
+<title>德宏家居</title>
 
 <base href="/public/home/">
 <!-- meta tags -->
