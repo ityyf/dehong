@@ -185,6 +185,10 @@ Route::any('home/summary','Home\SummaryController@summary');
 Route::any('home/codes','Home\IconsController@codes');
 
 
+//联系页留言添加
+Route::any('home/message_add','Home\ContactController@message_add');
+Route::any('home/message_add_exec','Home\ContactController@message_add_exec');
+
 
 ?>
 
