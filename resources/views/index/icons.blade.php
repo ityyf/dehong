@@ -40,81 +40,15 @@
 		<section id="new">
 			<!--<h3 class="page-header page-header icon-subheading">30 New Icons </h3>-->
 			<div class="row fontawesome-icon-list">
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-home" aria-hidden="true"></i>全部产品</a></div>
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa  fa-home" aria-hidden="true"></i> 桌案类 </a></div>
-
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa  fa-home" aria-hidden="true"></i>椅凳类</a></div>
-
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa  fa-home" aria-hidden="true"></i>柜架类</a></div>
-
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa  fa-home" aria-hidden="true"></i> 床榻类</a></div>
-
-
-
-				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa  fa-home" aria-hidden="true"></i> 其他</a></div>
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-deafness" aria-hidden="true"></i> deafness <span class="text-muted">(alias)</span></a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-envira" aria-hidden="true"></i> fa-envira</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-fa" aria-hidden="true"></i> fa-fa <span class="text-muted">(alias)</span></a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-first-order" aria-hidden="true"></i> fa-first-order</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-font-awesome" aria-hidden="true"></i> fa-font-awesome</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-gitlab" aria-hidden="true"></i> fa-gitlab</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-glide" aria-hidden="true"></i> fa-glide</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-glide-g" aria-hidden="true"></i> fa-glide-g</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-google-plus-circle" aria-hidden="true"></i> fa-google-plus-circle <span class="text-muted">(alias)</span></a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-google-plus-official" aria-hidden="true"></i> fa-google-plus-official</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-hard-of-hearing" aria-hidden="true"></i> fa-hard-of-hearing <span class="text-muted">(alias)</span></a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-instagram" aria-hidden="true"></i> fa-instagram</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-low-vision" aria-hidden="true"></i> fa-low-vision</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-pied-piper" aria-hidden="true"></i> fa-pied-piper</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-question-circle-o" aria-hidden="true"></i> fa-question-circle-o</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-sign-language" aria-hidden="true"></i> fa-sign-language</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-signing" aria-hidden="true"></i> fa-signing <span class="text-muted">(alias)</span></a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-snapchat" aria-hidden="true"></i> fa-snapchat</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i> fa-snapchat-ghost</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-snapchat-square" aria-hidden="true"></i> fa-snapchat-square</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-themeisle" aria-hidden="true"></i> fa-themeisle</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-universal-access" aria-hidden="true"></i> fa-universal-access</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-viadeo" aria-hidden="true"></i> fa-viadeo</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-viadeo-square" aria-hidden="true"></i> fa-viadeo-square</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> fa-volume-control-phone</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i> fa-wheelchair-alt</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-wpbeginner" aria-hidden="true"></i> fa-wpbeginner</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-wpforms" aria-hidden="true"></i> fa-wpforms</a></div>-->
-
-				<!--<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="#"><i class="fa fa-yoast" aria-hidden="true"></i> fa-yoast</a></div>-->
-
+				@foreach($category as $val)
+				<div class="icon-box col-md-3 col-sm-4"><a class="agile-icon" href="{{url('home/details',['c_id'=>$val->c_id])}}"><i class="fa fa-home" aria-hidden="true"></i>{{$val->c_name}}</a></div>
+				@endforeach
+								
 			</div>
 		</section>
 		<div class="gallery-grids-top">
 			<div class="gallery-grids">
+				<!-- 大图 -->
 				<div class="col-md-6 gallery-grid-top">
 					<div class="gallery-grid-top-img">
 						<a class="example-image-link" href="{{url('home/codes')}}" data-title=""><img class="example-image" src="images/img8.jpg" alt=""/></a>

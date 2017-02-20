@@ -26,8 +26,7 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-});
+
 //后台登陆页
 Route::get('admin/login','Admin\LoginController@login');
 //后台首页
@@ -84,10 +83,26 @@ Route::any('/check_login','admin/LoginController@check_login');
 Route::any('home/index','Home\IndexController@index');
 Route::any('home/about','Home\AboutController@about');
 Route::any('home/contact','Home\ContactController@contact');
+//新闻列表页
 Route::any('home/news','Home\NewsController@news');
-Route::any('home/icons','Home\IconsController@icons');
+//新闻详情页
+Route::any('home/news_list/{n_id?}','Home\NewsController@news_list');
+//上一篇
+Route::any('home/getPrevArticleId/{n_id?}','Home\NewsController@getPrevArticleId');
+//下一篇
+Route::any('home/getNextArticleId/{n_id?}','Home\NewsController@getNextArticleId');
+
+//产品
+Route::any('home/icons/{c_id?}','Home\IconsController@icons');
+
+//产品图片
+Route::any('home/details/{c_id?}','Home\IconsController@details');
+//产品详情
+Route::any('home/codes/{c_id?}','Home\IconsController@codes');
+
+
+
 Route::any('home/summary','Home\SummaryController@summary');
-Route::any('home/codes','Home\IconsController@codes');
 
 
 
