@@ -49,58 +49,70 @@
 		<div class="gallery-grids-top">
 			<div class="gallery-grids">
 				<!-- 大图 -->
-				<div class="col-md-6 gallery-grid-top">
+				<!-- <div class="col-md-6 gallery-grid-top">
 					<div class="gallery-grid-top-img">
 						<a class="example-image-link" href="{{url('home/codes')}}" data-title=""><img class="example-image" src="images/img8.jpg" alt=""/></a>
 					</div>
-				</div>
-				<div class="col-md-6 gallery-right">
+				</div> -->
+				<!-- <div class="col-md-6 gallery-right">
 					<div class="gallery-right-grid">
 						<div class="col-md-6 gallery-grid-img">
 							<a class="example-image-link" href="images/img6.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img6.jpg" alt=""/></a>
-						</div>
-						<div class="col-md-6 gallery-grid-img">
+						</div> -->
+						<!-- <div class="col-md-6 gallery-grid-img">
 							<a class="example-image-link" href="images/img8.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img8.jpg" alt=""/></a>
-						</div>
+						</div> -->
 						<div class="clearfix"> </div>
 					</div>
 					<div class="gallery-right-grid gallery-right-top-grid">
-						<div class="col-md-6 gallery-grid-img">
+						<!-- <div class="col-md-6 gallery-grid-img">
 							<a class="example-image-link" href="images/img2.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img2.jpg" alt=""/></a>
-						</div>
-						<div class="col-md-6 gallery-grid-img">
+						</div> -->
+						<!-- <div class="col-md-6 gallery-grid-img">
 							<a class="example-image-link" href="images/img4.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img4.jpg" alt=""/></a>
-						</div>
+						</div> -->
 						<div class="clearfix"> </div>
 					</div>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="gallery-grids gallery-grids-middle">
+				<!-- @foreach($data as $val)
+				@foreach($val as $v)
 				<div class="col-md-4 gallery-grid middle-gallery-grid" style="border:1px solid bla">
-					<a class="example-image-link" href="images/img1.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img1.jpg" alt=""/></a>
+					<a class="example-image-link" href="{{url('home/codes',['p_id'=>$v->p_id])}}" data-lightbox="example-set" data-title=""><img class="example-image" src="/public/upload/{{$v->a_url}}" alt=""/></a>
 				</div>
+				@endforeach
+				@endforeach -->
+				<!-- @foreach($data as $val)
+				@foreach($val as $v)
 				<div class="col-md-4 gallery-grid middle-gallery-grid">
-					<a class="example-image-link" href="images/img2.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img2.jpg" alt=""/></a>
+					<a class="example-image-link" href="{{url('home/codes',['p_id'=>$v->p_id])}}" data-lightbox="example-set" data-title=""><img class="example-image" src="/public/upload/{{$v->a_url}}" alt=""/></a>
 				</div>
+				@endforeach
+				@endforeach -->
+				@foreach($data as $val)
+				@foreach($val as $v)
 				<div class="col-md-4 gallery-grid middle-gallery-grid">
-					<a class="example-image-link" href="images/img3.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img3.jpg" alt=""/></a>
+					<a class="example-image-link" href="{{url('home/codes',['p_id'=>$v->p_id])}}" style="width: 400px;height: 300px;padding-top: 10px;" data-title=""><img class="example-image" src="/public/upload/{{$v->a_url}}" alt=""/></a>
 				</div>
+				@endforeach
+				@endforeach
 				<div class="clearfix"> </div>
 			</div>
 			<div class="gallery-grids">
-				<div class="col-md-3 gallery-grid">
+				<!-- <div class="col-md-3 gallery-grid">
 					<a class="example-image-link" href="images/img1.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img1.jpg" alt=""/></a>
-				</div>
-				<div class="col-md-3 gallery-grid">
+				</div> -->
+				<!-- <div class="col-md-3 gallery-grid">
 					<a class="example-image-link" href="images/img2.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img2.jpg" alt=""/></a>
 				</div>
 				<div class="col-md-3 gallery-grid">
 					<a class="example-image-link" href="images/img3.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img3.jpg" alt=""/></a>
-				</div>
-				<div class="col-md-3 gallery-grid">
+				</div> -->
+				<!-- <div class="col-md-3 gallery-grid">
 					<a class="example-image-link" href="images/img3.jpg" data-lightbox="example-set" data-title=""><img class="example-image" src="images/img3.jpg" alt=""/></a>
-				</div>
+				</div> -->
 				<div class="clearfix"> </div>
 			</div>
 			<script src="js/lightbox-plus-jquery.min.js"></script>
@@ -159,7 +171,7 @@
 </div>
 <!-- //footer -->
 <!-- start-smooth-scrolling-->
-<script type="text/javascript" src="/public/js/move-top.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {

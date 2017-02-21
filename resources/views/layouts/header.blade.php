@@ -35,13 +35,11 @@
 							<!--class="active"-->
 							<li class="active" ><a href="{{url('home/index')}}" class="link link--yaku"><span>徳</span><span>宏</span><span>首</span><span>页</span></a></li>
 							<li><a href="{{url('home/about')}}" class="link link--yaku"><span>公</span><span>司</span><span>简</span><span>介</span></a></li>
-							<li><a href="{{url('home/icons')}}" class="dropdown-toggle link link--yaku" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>产</span><span>品</span><span>展</span><span>示</span><span></span><span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="{{url('home/icons')}}" class="link link--yaku"><span>丶</span><span>分类一</span></a></li>
-									<li><a href="{{url('home/icons')}}" class="link link--yaku"><span>丶</span><span>分类二</span></a></li>
-									<li><a href="{{url('home/icons')}}" class="link link--yaku"><span>丶</span><span>分类三</span></a></li>
-									<li><a href="{{url('home/icons')}}" class="link link--yaku"><span>丶</span><span>分类四</span></a></li>
-								</ul>
+							<li>
+								
+
+								<li><a href="{{url('home/icons',['c_id'=>'null'])}}" class="link link--yaku"><span>产</span><span>品</span><span>展</span><span>示</span><span></span></a></li>
+								
 							</li>
 							<li><a href="{{url('home/news')}}" class="link link--yaku"><span>新</span><span>闻</span><span>中</span><span>心</span></a></li>
 							<li><a href="{{url('home/contact')}}" class="link link--yaku"><span>联</span><span>系</span><span>我</span><span>们</span></a></li>

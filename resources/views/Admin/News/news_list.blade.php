@@ -8,9 +8,7 @@
     <script type="text/javascript" src="/public/js/jquery.min.js"></script>
     <script type="text/javascript" src="/public/js/global.js"></script>
     <script type="text/javascript" src="/public/js/jquery.autotextarea.js"></script>
-    <style type="text/css">
-        /*a{text-decoration: none;}*/
-    </style>
+    <link href="/public/home/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 </head>
 <body>
 <div id="dcWrap">
@@ -79,10 +77,10 @@
                 </form>
             </div>
             <div class="clear"></div>
-            <div class="pager">
+            <ul class="pagination pagination-lg" style="">
+                            
                 {{$data->render()}}
-                
-            </div>           
+            </ul>       
         </div>
     </div>
     <div class="clear"></div>

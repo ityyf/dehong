@@ -42,29 +42,18 @@
 				<div class="bs-example w3layouts">
 					<table class="table">
 						<tbody style="font-size: 18px">
+						@foreach($data as $val)
 						<tr>
-							<td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-							<td class="type-info w3l">2017-2-9</td>
+							<td>
+								<h3 id="h3.-bootstrap-heading">
+								<a class="anchorjs-link" href="{{url('home/news_list',['n_id'=>$val->n_id])}}">
+								<span class="anchorjs-icon">{{$val->n_title}}</span>
+							</a>
+								</h3>
+							</td>
+							<td class="type-info w3l">{{date('Y-m-d',$val->n_addtime)}}</td>
 						</tr>
-                        <tr>
-                            <td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。不求量而求精.<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                            <td class="type-info w3l">2017-2-9</td>
-                        </tr><tr>
-                            <td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。不求量而求精.<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                            <td class="type-info w3l">2017-2-9</td>
-                        </tr>
-                        <tr>
-                            <td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。不求量而求精.<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                            <td class="type-info w3l">2017-2-9</td>
-                        </tr>
-                        <tr>
-                            <td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。不求量而求精.<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                            <td class="type-info w3l">2017-2-9</td>
-                        </tr>
-                        <tr>
-                            <td><h3 id="h3.-bootstrap-heading">传千载文化，造百年经典。不求量而求精.<a class="anchorjs-link" href="#h3.-bootstrap-heading"><span class="anchorjs-icon"></span></a></h3></td>
-                            <td class="type-info w3l">2017-2-9</td>
-                        </tr>
+						@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -73,13 +62,14 @@
 				<div class="col-md-6 page_1 agileits-w3layouts">
 					<nav>
 						<ul class="pagination pagination-lg">
-							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<!-- <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li> -->
+							{{$data->render()}}
 						</ul>
 					</nav>
 				</div>
