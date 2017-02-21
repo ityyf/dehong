@@ -85,6 +85,12 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td height="35" align="right">产品图片</td>
+                                    <td>
+                                        <input type="file" name="p_img" size="38" class="inpFlie" />
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td height="35" align="right">产品简介</td>
                                     <td>
                                         <textarea name="p_desc" cols="60" rows="4" class="textArea" required></textarea>
@@ -147,13 +153,19 @@
                                 <tr>
                                     <td height="35" align="right">售前服务</td>
                                     <td>
-                                        <textarea name="promise" cols="60" rows="4" class="textArea" required></textarea>
+                                        <script>
+                                            var ue = UE.getEditor('promise');
+                                        </script>
+                                        <textarea id="promise" name="promise" style="width:800px;height:200px;" class="textArea" required></textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td height="35" align="right">售后服务</td>
                                     <td>
-                                        <textarea name="aftermarket" cols="60" rows="4" class="textArea" required></textarea>
+                                        <script>
+                                            var ue = UE.getEditor('aftermarket');
+                                        </script>
+                                        <textarea id="aftermarket" name="aftermarket" style="width:800px;height:200px;" class="textArea" required></textarea>
                                     </td>
                                 </tr>
                                 <tr>

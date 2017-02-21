@@ -41,6 +41,7 @@ class ProductController extends CommonController
     public function product_add_exec()
     {
         $file = Input::file('a_url');
+        $img = $this->uploads(Input::file('p_img'));
         $data = Input::get();
         //返回提示信息
         $result = [
@@ -62,6 +63,7 @@ class ProductController extends CommonController
             'is_sell'=>$data['is_sell'],
             'is_offer'=>$data['is_offer'],
             'addtime'=>time(),
+            'p_img'=>$img,
         ];
         if (empty($data['p_sn']))
         {
@@ -192,6 +194,7 @@ class ProductController extends CommonController
     public function product_save_exec()
     {
         $file = Input::file('a_url');
+        $img = Input::file('p_img');
         $data = Input::get();
         //返回提示信息
         $result = [
@@ -200,7 +203,15 @@ class ProductController extends CommonController
             'url'=>'',
             'wait'=>3
         ];
-
+        //查询产品图片是否修改
+        if (empty($img))
+        {
+            //删除原有文件
+            $Path = DB::table('product')->select('p_img')->where(['p_id'=>$data['p_id']])->frist();
+            unlink('.'.$Path);
+        }
+        $imgPath = $this->uploads($img);
+        ///public/uploads/2017-02-21-58ac336b75f1e.jpg
         //产品基本信息
         $product = [
             'p_name'=>$data['p_name'],
@@ -212,6 +223,7 @@ class ProductController extends CommonController
             'p_desc'=>$data['p_desc'],
             'is_sell'=>$data['is_sell'],
             'is_offer'=>$data['is_offer'],
+            'p_img'=>$imgPath,
             'addtime'=>time(),
         ];
         if (empty($data['p_sn']))
@@ -264,22 +276,22 @@ class ProductController extends CommonController
                 'detail'=>$data['detail'],
             ];
             $detail_info = DB::table('pro_detail')->where(['p_id'=>$data['p_id']])->update($detail);
-
-            if ($album_info != 0 && $detail_info != 0)
+            
+            if ($album_info != 0 )
             {
                 $result['msg'] = '修改产品信息成功';
                 $result['url'] = 'product_list';
             }
             else
             {
-                $result['msg'] = '修改产品信息失败';
-                $result['url'] = 'product_add';
+                $result['msg'] = '修改产品信息失败2';
+                $result['url'] = 'product_list';
             }
         }
         else
         {
-            $result['msg'] = '修改产品信息失败';
-            $result['url'] = 'product_add';
+            $result['msg'] = '修改产品信息失败1';
+            $result['url'] = 'product_list';
         }
         return view('admin.Product.message',$result);
 

@@ -96,6 +96,13 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td height="35" align="right">产品图片</td>
+                                    <td>
+                                        <input type="file" name="p_img" size="38" class="inpFlie" />
+                                        <span style="color:burlywood">不改不用添</span>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td height="35" align="right">产品简介</td>
                                     <td>
                                         <textarea name="p_desc" cols="60" rows="4"  class="textArea" required>{{$product_info->p_desc}}</textarea>
@@ -168,13 +175,19 @@
                                 <tr>
                                     <td height="35" align="right">售前服务</td>
                                     <td>
-                                        <textarea name="promise" cols="60" rows="4" class="textArea" required>{{$product_info->promise}}</textarea>
+                                        <script>
+                                            var ue = UE.getEditor('promise');
+                                        </script>
+                                        <textarea id="promise" name="promise" style="width:800px;height:200px;" class="textArea" required>{{$product_info->promise}}</textarea>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td height="35" align="right">售后服务</td>
                                     <td>
-                                        <textarea name="aftermarket" cols="60" rows="4" class="textArea" required>{{$product_info->aftermarket}}</textarea>
+                                        <script>
+                                            var ue = UE.getEditor('aftermarket');
+                                        </script>
+                                        <textarea id="aftermarket" name="aftermarket" style="width:800px;height:200px;" class="textArea" required>{{$product_info->aftermarket}}</textarea>
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,7 +202,7 @@
                             <table width="100%" border="0" cellpadding="5" cellspacing="1" class="tableBasic">
                                 <tr align="center">
                                     <td>
-                                        图片描述 <input type="text" name="a_desc" style="color:burlywood" value="不改不用写" size="30" class="inpMain" required/>
+                                        图片描述 <input type="text" name="a_desc" style="color:burlywood" value="不改不用添" size="30" class="inpMain" required/>
                                         多文件上传 <input type="file" name="a_url[]" size="38" class="inpFlie" multiple />
                                     </td>
                                 </tr>
