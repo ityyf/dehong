@@ -40,83 +40,35 @@
 			<h3 class="w3ls-title1">关于 <span>我们</span></h3>
 			<div class="about-agileinfo w3layouts">
 				<div class="col-md-8 about-wthree-grids grid-top">
-					<h4>  红木家具-廊坊德宏古典家居</h4>
-					<p class="top">廊坊陶然居家具有限公司创建于1990年，坐落在南赵扶镇东侧，占地面积40亩，现有员工260多人。企业产品多以明清两代古典式家具为主，种类多样，主要包括椅凳、桌案、床榻、橱柜、杂项等5大类40余种，均为纯手工制作，做工上乘、质量优良，主要销往广州、北京、上海等国内各大城市和港澳台等地区，并出口美国、德国、新加坡、澳大利亚等国家，该企业已成为红木家具业的一面旗帜。 </p>
-					<p>  该企业生产的古典家具产品，主要以越南、柬埔寨、印度、马达加斯加等地进口的紫檀、花梨、酸枝等名贵红木为原料。公司拥有大批能工巧匠，始终坚持把每一件家具作为艺术品来设计，生产工艺精湛，生产制作以明清宫廷图谱为基础，继承了原汁原味的明清宫廷技法，图案雕刻工艺纯熟，在家具的整个制作过程中不使用油漆、腻子、钉子和任何防腐剂，全部以精密巧妙的榫卯结合部件，真正做到了没有一根钉子，但牢固无比；没有任何防腐剂，但百年不朽；没有任何涂料，但光艳夺目，有着深厚的文化内涵和丰蕴的中国民族特色，独特的形神气质和精湛的工艺技术代表了京做的最高水平。
-						多年来，廊坊陶然居家具有限公司领先于行业标准的典藏家具受到资深收藏者的追捧，赢得了各界名人的认同。该公司曾获得廊坊市消费者协会“廊坊市第十届消费者信得过单位”、廊坊市工商行政管理局“廊坊市知名商标企业”、 廊坊市民营企业家协会会员单位、大城县古典家具协会理事长单位、大城县古典家具协会“真品红木家具放心店”等荣誉称号。
-						</p>
-					<p>公司宗旨：传千载文化，造百年经典。不求量而求精，试看后人来评定。</p>
-					<p>公司生产地址：河北省廊坊市大城县红木家具一条街</p>
-					<p>电　　话：(86)0316-5655127</p>
+					<h4>  {{$firm->f_name	}}</h4>
+					<div>
+						<?php echo html_entity_decode($firm->f_nickname) ?>
+					</div>
 				</div>
 				<div class="col-md-4 about-wthree-grids">
 					<div class="offic-time">
 						<div class="time-top">
-							<h4>Working Hours :</h4>
+							<h4>联系我们</h4>
 						</div>
 						<div class="time-bottom">
-							<h5>Mon-Fri:10am-9pm </h5>
-							<h5>Sat-Sun:By Special Appointment</h5>
-							<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui accusamus et. </p>
+							<p>电话：{{$firm->f_tel}}</p>
+							<p>手机：{{$firm->f_phone}}</p>
+							<p>联系人：{{$firm->f_contact}}</p>
+							<p>邮箱：{{$firm->f_email}}</p>
+							<p>网址：{{$firm->f_url}}</p>
+							<p>地址：{{$firm->f_address}}</p>
 						</div>
 					</div>
 					<div class="testi">
-						<h3 class="w3ls-title1">Testimo<span>nial</span></h3>
-						<!--//End-slider-script -->
-						<script src="js/responsiveslides.min.js"></script>
-						 <script>
-							// You can also use "$(window).load(function() {"
-							$(function () {
-							  // Slideshow 5
-							  $("#slider5").responsiveSlides({
-								auto: true,
-								pager: false,
-								nav: true,
-								speed: 500,
-								namespace: "callbacks",
-								before: function () {
-								  $('.events').append("<li>before event fired.</li>");
-								},
-								after: function () {
-								  $('.events').append("<li>after event fired.</li>");
-								}
-							  });
-						
-							});
-						  </script>
 						<div  id="top" class="callbacks_container">
 							<ul class="rslides" id="slider5">
 								<li>
 									<div class="testi-slider">
-										<h4>" I AM VERY PLEASED.</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu magna dolor, quisque semper.</p>
-										<div class="testi-subscript">
-											<p><a href="#">John Doe,</a>Adipiscing</p>
-											<span class="w3-agilesub"> </span>
-										</div>
+										<h4>企业宗旨</h4>
+										<p class="w3-agilesub"> 传千载文化，造百年经典，不求量而求精，试看后人来评定。</p>
 									</div>
 								</li>
-								<li>
-									<div class="testi-slider">
-										<h4>" I AM LOREM IPSUM.</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu magna dolor, quisque semper.</p>
-										<div class="testi-subscript">
-											<p><a href="#">elit semper,</a>Dolor Elit</p>
-											<span class="w3-agilesub"> </span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="testi-slider">
-										<h4>" CONSECTETUR PIMAGNA.</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu magna dolor, quisque semper.</p>
-										<div class="testi-subscript">
-											<p><a href="#">Amet Doe,</a>Suspendisse</p>
-											<span class="w3-agilesub"> </span>
-										</div>
-									</div>
-								</li>
-							</ul>
+								</ul>
 						</div>
 					</div>
 				</div>	

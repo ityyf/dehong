@@ -217,7 +217,6 @@
 		<!-- //copy-right -->
 	</div>
 	<!-- //footer --> 
-	<!-- start-smooth-scrolling-->
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>	
 	<script type="text/javascript">

@@ -14,9 +14,19 @@ use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 class CommonController extends Controller
 {
+    public $result = [
+        'title'=>'提示信息',
+        'msg'=>'请先登录',
+        'url'=>'login',
+        'wait'=>3
+    ];
    public function __construct(){
        $session = new session;
        $admin_id = $session->get('admin_id');
+       if (!isset($admin_id))
+       {
+           echo "<script>alert('请先登录');location.href='login'</script>";
+       }
        $url = Input::url();
        $urlArray=parse_url($url);
        $location =  strrpos ($urlArray['path'],'/');
